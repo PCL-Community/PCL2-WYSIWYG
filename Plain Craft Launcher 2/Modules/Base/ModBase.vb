@@ -11,6 +11,9 @@ Public Module ModBase
 
 #Region "声明"
 
+    '下列信息为WYSIWYG版新增
+    Public Const UpdateRepository As String = "PCL-Community/PCL2-WYSIWYG"
+
     '下列版本信息由更新器自动修改
     Public Const VersionBaseName As String = "2.8.13" '不含分支前缀的显示用版本名
     Public Const VersionStandardCode As String = "2.8.13." & VersionBranchCode '标准格式的四段式版本号
