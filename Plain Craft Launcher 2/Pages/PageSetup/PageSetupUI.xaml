@@ -9,7 +9,7 @@
             <local:MyCard Margin="0,15" Title="基础" x:Name="CardLauncher">
                 <Grid Margin="25,40,25,17">
                     <StackPanel>
-                        <Grid Margin="0,0,0,6">
+                        <Grid Margin="0,0,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="Name1" />
                                 <ColumnDefinition Width="1*" />
@@ -33,7 +33,7 @@
                             <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Name="LabLauncherLight" Visibility="Collapsed" HorizontalAlignment="Left" Text="亮度" Margin="0,10,20,0" />
                             <local:MySlider Grid.Row="2" Grid.Column="4" x:Name="SliderLauncherLight" Tag="UiLauncherLight" Visibility="Collapsed" MaxValue="40" ValueByKey="5" Margin="0,10,0,0" />
                         </Grid>
-                        <Grid x:Name="PanLauncherTheme" Height="90" Margin="0,0,0,7">
+                        <Grid x:Name="PanLauncherTheme" Height="90" Margin="0,0,0,7" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="Name1" />
                                 <ColumnDefinition />
