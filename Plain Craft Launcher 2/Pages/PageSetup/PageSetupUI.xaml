@@ -263,8 +263,8 @@
                             <ColumnDefinition Width="0.8*" />
                             <ColumnDefinition Width="0.9*" />
                             <ColumnDefinition Width="0.8*" />
-                            <ColumnDefinition Width="0.8*" />
-                            <ColumnDefinition Width="1.0*" />
+                            <ColumnDefinition Width="0.9*" />
+                            <!-- <ColumnDefinition Width="1.0*" /> -->
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="4" />
@@ -287,9 +287,9 @@
                         <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="更多 子页面" />
                         <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Text="帮助" x:Name="CheckHiddenOtherHelp" Tag="UiHiddenOtherHelp" />
                         <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="3" Text="关于与鸣谢" x:Name="CheckHiddenOtherAbout" Tag="UiHiddenOtherAbout" />
-                        <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="4" Text="百宝箱" x:Name="CheckHiddenOtherTest" Tag="UiHiddenOtherTest" />
-                        <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="5" Text="反馈" x:Name="CheckHiddenOtherFeedback" Tag="UiHiddenOtherFeedback" />
-                        <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="6" Text="新功能投票" x:Name="CheckHiddenOtherVote" Tag="UiHiddenOtherVote" />
+                        <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="4" Text="百宝箱" x:Name="CheckHiddenOtherTest" Tag="UiHiddenOtherTest" Visibility="Collapsed" />
+                        <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="4" Text="反馈" x:Name="CheckHiddenOtherFeedback" Tag="UiHiddenOtherFeedback" />
+                        <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="5" Text="新功能投票" x:Name="CheckHiddenOtherVote" Tag="UiHiddenOtherVote" />
                         <TextBlock Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Text="特定功能" />
                         <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2" Text="邮箱隐藏" x:Name="CheckLauncherEmail" Tag="UiLauncherEmail" ToolTip="隐藏第三方登录的账号邮箱显示，并尽量将邮箱打码，以避免隐私泄露。&#xa;此选项的更改将在重启启动器后生效。" />
                         <local:MyCheckBox Height="22" VerticalAlignment="Center" Grid.Row="4" Grid.Column="3" Text="版本管理" x:Name="CheckHiddenFunctionSelect" Tag="UiHiddenFunctionSelect" ToolTip="隐藏启动按钮下方的版本选择与版本设置入口。" />

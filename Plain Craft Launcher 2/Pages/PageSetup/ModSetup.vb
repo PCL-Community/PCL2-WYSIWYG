@@ -291,6 +291,7 @@
     ''' 获取某个设置项的值。
     ''' </summary>
     Public Function [Get](Key As String, Optional Version As McVersion = Nothing)
+        If Key = "UiHiddenOtherTest" Then Return True '通过一种巧妙的办法隐藏百宝箱
         If Not SetupDict.ContainsKey(Key) Then Throw New KeyNotFoundException("未找到设置项：" & Key) With {.Source = Key}
         Return [Get](Key, SetupDict(Key), Version)
     End Function
