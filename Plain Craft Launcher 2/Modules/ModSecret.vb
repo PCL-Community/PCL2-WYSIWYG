@@ -19,9 +19,9 @@ Friend Module ModSecret
     '在开源版的注册表与常规版的注册表隔离，以防数据冲突
     Public Const RegFolder As String = "PCL-WYSIWYG" 'WYSIWYG 版修改内容
     '用于微软登录的 ClientId
-    Public Const OAuthClientId As String = ""
+    Public OAuthClientId As String = Setup.Get("X-OAuthClientId")
     'CurseForge API Key
-    Public Const CurseForgeAPIKey As String = ""
+    Public CurseForgeAPIKey As String = Setup.Get("X-CurseForgeAPIKey")
 
     Friend Sub SecretOnApplicationStart()
         '提升 UI 线程优先级

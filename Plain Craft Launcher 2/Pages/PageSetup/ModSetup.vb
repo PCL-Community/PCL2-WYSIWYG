@@ -8,6 +8,8 @@
     ''' 设置列表。
     ''' </summary>
     Private ReadOnly SetupDict As New Dictionary(Of String, SetupEntry) From {
+        {"X-OAuthClientId", New SetupEntry("", Source:=SetupSource.Registry)},
+        {"X-CurseForgeAPIKey", New SetupEntry("", Source:=SetupSource.Registry)},
         {"Identify", New SetupEntry("", Source:=SetupSource.Registry)},
         {"WindowHeight", New SetupEntry(550)},
         {"WindowWidth", New SetupEntry(900)},
