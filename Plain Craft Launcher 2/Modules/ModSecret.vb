@@ -10,7 +10,7 @@ Friend Module ModSecret
 #Region "新增元数据"
 
     '下列信息为WYSIWYG版新增
-    Public Const UpdateRepository As String = "PCL-Community/PCL2-WYSIWYG"
+    Public Const GithubRepository As String = "PCL-Community/PCL2-WYSIWYG"
 
 #End Region
 
@@ -284,7 +284,7 @@ Friend Module ModSecret
         Dim LatestVersion As String = Nothing
         RunInNewThread(Sub()
                            Try
-                               LatestReleaseInfoJson = GetJson(NetRequestRetry("https://api.github.com/repos/" & UpdateRepository & "/releases/latest", "GET", "", "application/x-www-form-urlencoded"))
+                               LatestReleaseInfoJson = GetJson(NetRequestRetry("https://api.github.com/repos/" & GithubRepository & "/releases/latest", "GET", "", "application/x-www-form-urlencoded"))
                                LatestVersion = LatestReleaseInfoJson("tag_name").ToString
                                If Not LatestVersion = VersionBaseName Then
                                    If MyMsgBox($"发现了启动器更新（版本 {LatestVersion}），是否更新？", "启动器更新", "更新", "取消") = 1 Then
@@ -300,7 +300,7 @@ Friend Module ModSecret
                        End Sub)
     End Sub
     Public Sub UpdateStart(VersionStr As String, Slient As Boolean, Optional ReceivedKey As String = Nothing, Optional ForceValidated As Boolean = False)
-        Dim DlLink As String = "https://github.com/" & UpdateRepository & "/releases/download/" + VersionStr + "/PCL2_WYSIWYG.exe"
+        Dim DlLink As String = "https://github.com/" & GithubRepository & "/releases/download/" + VersionStr + "/PCL2_WYSIWYG.exe"
         Dim DlTargetPath As String = Path + "PCL\Plain Craft Launcher 2.exe"
         RunInNewThread(Sub()
                            Try

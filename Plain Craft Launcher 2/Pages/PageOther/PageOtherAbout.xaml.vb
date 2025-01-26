@@ -9,7 +9,7 @@
         '非重复加载部分
         If IsLoaded Then Exit Sub
         IsLoaded = True
-
+        BtnViewSource.EventData = "https://github.com/" & GithubRepository 'WYSIWYG版新增
         ItemAboutPcl.Info = ItemAboutPcl.Info.Replace("%VERSION%", VersionDisplayName).Replace("%VERSIONCODE%", VersionCode).Replace("%BRANCH%", VersionBranchCode)
 #If DEBUG Then
         BtnDonateDonate.Visibility = Visibility.Collapsed

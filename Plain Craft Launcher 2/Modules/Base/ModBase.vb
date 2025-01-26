@@ -23,14 +23,14 @@ Public Module ModBase
     '自动生成的版本信息
     Public Const VersionDisplayName As String = VersionBranchName & " " & VersionBaseName
 #If RELEASE Then
-    Public Const VersionBranchName As String = "Snapshot"
-    Public Const VersionBranchCode As String = "0"
+    Public Const VersionBranchName As String = "Snapshot" 'WYSIWYG不使用
+    Public Const VersionBranchCode As String = "0" 'WYSIWYG不使用
 #ElseIf BETA Then
-    Public Const VersionBranchName As String = "Release"
+    Public Const VersionBranchName As String = "WYSIWYG Release"
     Public Const VersionBranchCode As String = "50"
 #Else
-    Public Const VersionBranchName As String = "Debug"
-    Public Const VersionBranchCode As String = "100"
+    Public Const VersionBranchName As String = "Debug" 'WYSIWYG不使用
+    Public Const VersionBranchCode As String = "100" 'WYSIWYG不使用
 #End If
 
     ''' <summary>
