@@ -7,10 +7,17 @@ Imports System.Security.Cryptography
 
 Friend Module ModSecret
 
+#Region "新增元数据"
+
+    '下列信息为WYSIWYG版新增
+    Public Const UpdateRepository As String = "PCL-Community/PCL2-WYSIWYG"
+
+#End Region
+
 #Region "杂项"
 
     '在开源版的注册表与常规版的注册表隔离，以防数据冲突
-    Public Const RegFolder As String = RegistryRootPath '请至ModBase修改此项
+    Public Const RegFolder As String = "PCL-WYSIWYG" 'WYSIWYG 版修改内容
     '用于微软登录的 ClientId
     Public Const OAuthClientId As String = ""
     'CurseForge API Key
