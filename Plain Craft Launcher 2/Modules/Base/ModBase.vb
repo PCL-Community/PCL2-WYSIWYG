@@ -26,7 +26,7 @@ Public Module ModBase
     Public Const VersionBranchName As String = "Snapshot" 'WYSIWYG不使用
     Public Const VersionBranchCode As String = "0" 'WYSIWYG不使用
 #ElseIf BETA Then
-    Public Const VersionBranchName As String = "WYSIWYG Release"
+    Public Const VersionBranchName As String = "Release"
     Public Const VersionBranchCode As String = "50"
 #Else
     Public Const VersionBranchName As String = "Debug" 'WYSIWYG不使用
