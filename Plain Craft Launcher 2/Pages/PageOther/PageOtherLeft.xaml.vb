@@ -7,8 +7,8 @@
         Dim IsHiddenPage As Boolean = False
         If ItemHelp.Checked AndAlso Setup.Get("UiHiddenOtherHelp") Then IsHiddenPage = True
         If ItemAbout.Checked AndAlso Setup.Get("UiHiddenOtherAbout") Then IsHiddenPage = True
+        If PageSetupUI.HiddenForceShow Then IsHiddenPage = False 'WYSIWYG版调换顺序
         If ItemTest.Checked AndAlso Setup.Get("UiHiddenOtherTest") Then IsHiddenPage = True
-        If PageSetupUI.HiddenForceShow Then IsHiddenPage = False
         '若页面错误，或尚未加载，则继续
         If IsLoad AndAlso Not IsHiddenPage Then Exit Sub
         IsLoad = True
@@ -18,10 +18,8 @@
         If IsPageSwitched Then Exit Sub
         If Not Setup.Get("UiHiddenOtherHelp") Then
             ItemHelp.SetChecked(True, False, False)
-        ElseIf Not Setup.Get("UiHiddenOtherAbout") Then
+        Else 'WYSIWYG版修改
             ItemAbout.SetChecked(True, False, False)
-        Else
-            ItemTest.SetChecked(True, False, False)
         End If
     End Sub
     Private Sub PageOtherLeft_Unloaded(sender As Object, e As RoutedEventArgs) Handles Me.Unloaded
@@ -39,10 +37,8 @@
         '选择第一个未被禁用的子页面
         If Not Setup.Get("UiHiddenOtherHelp") Then
             PageID = FormMain.PageSubType.OtherHelp
-        ElseIf Not Setup.Get("UiHiddenOtherAbout") Then
-            PageID = FormMain.PageSubType.OtherAbout
         Else
-            PageID = FormMain.PageSubType.OtherTest
+            PageID = FormMain.PageSubType.OtherAbout
         End If
     End Sub
 
