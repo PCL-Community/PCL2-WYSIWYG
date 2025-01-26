@@ -13,29 +13,35 @@ jobs:
     #    matrix:  
     #      configuration: [BETA]
     steps:
+
     - name: Checkout
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+
     - name: Get branch names
       id: branch-names
       uses: tj-actions/branch-names@v8
       with:
         strip_tag_prefix: v # Optionally strip the leading `v` from the tag.
+
     - name: Get short SHA
       uses: benjlevesque/short-sha@v3.0
       id: short-sha
       with:
         length: 6
+
     # - name: Set Describe
     #   shell: bash
     #   run: |
     #       describe=`git describe --tags --always`
     #       echo "describe=$describe" >> $GITHUB_ENV
+
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
       with:
         msbuild-architecture: x64
+
     # - name: Replace
     #   run: |
     #     (gc "Plain Craft Launcher 2\Modules\ModSecret.vb") -replace 'Public Const OAuthClientId As String = ""', 'Public Const OAuthClientId As String = "${{ secrets.CLIENT_ID }}"' | Out-File "Plain Craft Launcher 2\Modules\ModSecret.vb"
@@ -48,6 +54,7 @@ jobs:
     #     rm "Plain Craft Launcher 2\Resources\PCL2Help-master\*.*"
     #     7z a "Plain Craft Launcher 2\Resources\Help.zip" ".\Plain Craft Launcher 2\Resources\PCL2Help-master\*"
     #     rm "Plain Craft Launcher 2\Resources\PCL2Help-master\" -Recurse
+
     - name: Build
       run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=BETA
     
@@ -60,7 +67,7 @@ jobs:
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
-      if: steps.branch-names.outputs.is_tag
+      if: !steps.branch-names.outputs.is_tag
       with:
         name: ${{ steps.branch-names.outputs.ref_branch }}-${{ steps.short-sha.outputs.sha }} 
         path: Plain Craft Launcher 2\obj\BETA\Plain Craft Launcher 2.exe
