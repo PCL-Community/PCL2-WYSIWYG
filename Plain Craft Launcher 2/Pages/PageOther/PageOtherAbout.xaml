@@ -227,8 +227,8 @@
                         </Grid.ColumnDefinitions>
                         <local:MyButton x:Name="BtnDonateOutput" Grid.Column="0" MinWidth="140" Text="生成解锁码" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left" ColorType="Highlight" Visibility="Collapsed" />
                         <local:MyButton x:Name="BtnDonateDonate" Grid.Column="0" MinWidth="140" Text="赞助作者" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left" ColorType="Highlight" EventType="打开网页" EventData="https://afdian.com/a/LTCat" />
-                        <local:MyButton x:Name="BtnDonateCopy" Grid.Column="1" MinWidth="140" Text="复制识别码" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left" />
-                        <local:MyButton x:Name="BtnDonateInput" Grid.Column="2" MinWidth="140" Text="输入解锁码" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left" />
+                        <local:MyButton x:Name="BtnDonateCopy" Grid.Column="1" MinWidth="140" Text="复制识别码" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left" Visibility="Collapsed"/>
+                        <local:MyButton x:Name="BtnDonateInput" Grid.Column="2" MinWidth="140" Text="输入解锁码" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left" Visibility="Collapsed"/>
                     </Grid>
                 </StackPanel>
             </local:MyCard>
