@@ -60,14 +60,14 @@ jobs:
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
-      if: steps.branch-names.outputs.is_tag
+      if: steps.branch-names.outputs.is_tag == 'true'
       with:
         name: ${{ steps.branch-names.outputs.tag }}
         path: Plain Craft Launcher 2\obj\BETA\Plain Craft Launcher 2.exe
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
-      if: steps.branch-names.outputs.is_tag == false
+      if: steps.branch-names.outputs.is_tag == 'false'
       with:
         name: ${{ steps.branch-names.outputs.ref_branch }}-${{ steps.short-sha.outputs.sha }} 
         path: Plain Craft Launcher 2\obj\BETA\Plain Craft Launcher 2.exe
