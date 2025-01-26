@@ -17,6 +17,16 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+    - name: Get branch names
+      id: branch-names
+      uses: tj-actions/branch-names@v8
+      with:
+        strip_tag_prefix: v # Optionally strip the leading `v` from the tag.
+    - name: Get short SHA
+      uses: benjlevesque/short-sha@v3.0
+      id: short-sha
+      with:
+        length: 6
     # - name: Set Describe
     #   shell: bash
     #   run: |
@@ -40,8 +50,17 @@ jobs:
     #     rm "Plain Craft Launcher 2\Resources\PCL2Help-master\" -Recurse
     - name: Build
       run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=BETA
+    
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
+      if: steps.branch-names.outputs.is_tag
       with:
-        name: ${{ github.ref }}
+        name: ${{ steps.branch-names.outputs.tag }}
+        path: Plain Craft Launcher 2\obj\BETA\Plain Craft Launcher 2.exe
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4
+      if: steps.branch-names.outputs.is_tag
+      with:
+        name: ${{ steps.branch-names.outputs.ref_branch }}-${{ steps.short-sha.outputs.sha }} 
         path: Plain Craft Launcher 2\obj\BETA\Plain Craft Launcher 2.exe
